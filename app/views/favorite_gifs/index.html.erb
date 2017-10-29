@@ -1,5 +1,6 @@
 <h1> Here are you favorite Gifs! </h1>
 <% @gifs.each do |gif| %>
+<%=gif.category.name %>
 <%=image_tag(gif.image_path, size: "300x400", id: "image_#{gif.id}") %>
 <%= button_to "Unfavorite", :method => "delete", :controller => "favorite_gifs", params: { gif_id: gif.id } %>
 <% end %>
