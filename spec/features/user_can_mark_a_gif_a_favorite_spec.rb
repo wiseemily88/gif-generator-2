@@ -13,8 +13,6 @@ describe "a user can favorite a gif" do
     gif_4 = category_2.gifs.create!(image_path: "http://gph.is/29dwQaU")
 
     visit user_gifs_path(user)
-    save_and_open_page
-
     first(:button, 'Favorite' ).click
 
     expect(current_path).to eq(user_favorite_gifs_path(user))

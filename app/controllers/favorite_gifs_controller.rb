@@ -15,7 +15,7 @@ class FavoriteGifsController < ApplicationController
   end
 
   def destroy
-    current_user.favorite_gifs.delete
+    FavoriteGif.find_by(gif_id: params[:gif_id]).delete
     redirect_to user_favorite_gifs_path(current_user)
   end
 

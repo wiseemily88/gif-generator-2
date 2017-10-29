@@ -5,7 +5,7 @@ describe "As a logged in User" do
   user= User.create(username: "testing", email: "testing@gmail.com", password: "pass", role: 0)
   category = Category.create(name: "Monday")
 
-  gif = Gif.create(image_path: "testing", category: category)
+  gif = Gif.create(image_path: "https://media2.giphy.com/media/gEtjpEXi4luLe/giphy.gif", category: category)
 
   user.favorite_gifs.create( gif_id: gif.id)
   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -14,7 +14,7 @@ describe "As a logged in User" do
 
   expect(page).to have_css("#image_#{user.gifs.first.id}")
 
-  click_link "unfavorite"
+  click_button "Unfavorite"
   expect(current_path).to eq(user_favorite_gifs_path(user.id))
 
   end

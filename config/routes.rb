@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create', as: "login_path"
   delete '/logout', to: 'sessions#destroy'
-  delete '/unfavorite', to: 'favorites#destroy'
+  delete '/unfavorite', to: 'favorite_gifs#destroy'
 
 
   namespace :admin do
