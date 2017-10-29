@@ -16,10 +16,7 @@ describe "user sees a list of gifs sorted by category" do
 
 
     visit user_gifs_path(user)
-
-    expect(page).to have_content("http://gph.is/29dwQaU")
-
-
+    expect(page).to have_css("#image_#{gif_1.id}")
   end
 
 end
