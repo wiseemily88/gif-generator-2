@@ -1,5 +1,4 @@
-<h1> Here are you favorite Gifs! </h1>
-<%= link_to "Sort by Category", :action => "query", :controller => "favorite_gifs" %>
+<h1> Here are you favorite Gifs by Category! </h1>
 <% @gifs.each do |gif| %>
 <%=gif.category.name %>
 <%=image_tag(gif.image_path, size: "300x400", id: "image_#{gif.id}") %>

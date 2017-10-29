@@ -8,10 +8,7 @@ describe "As an admin" do
 
     visit admin_categories_path
 
-
-
     click_link "Delete"
-
 
     expect(current_path).to eq(admin_categories_path)
   end

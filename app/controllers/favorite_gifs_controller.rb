@@ -14,6 +14,15 @@ class FavoriteGifsController < ApplicationController
     redirect_to user_favorite_gifs_path(current_user)
   end
 
+  def query
+      @gifs = []
+      favorite_gifs = current_user.favorite_gifs
+      favorite_gifs.each {|favorite|  @gifs << Gif.find(favorite.gif_id) }
+      #create a new an array with hash with category as the key
+      @gifs.order(:category)
+
+  end
+
   def destroy
     FavoriteGif.find_by(gif_id: params[:gif_id]).delete
     redirect_to user_favorite_gifs_path(current_user)
