@@ -1,6 +1,7 @@
 require 'net/http'
 require 'json'
 require 'pry'
+
 class ApiService
 
   def initialize(category)
@@ -17,6 +18,5 @@ class ApiService
       image["images"]["original"]["url"]
     end
   end
-
 
 end

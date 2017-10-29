@@ -1,0 +1,7 @@
+<h1> Here are all the GIFS! </h1>
+
+  <% @gifs.each do |gif| %>
+  <%= image_tag(gif.image_path, size: "300x400", id: "image_#{gif.id}") %>
+  <%= gif.category%>
+  <%= button_to "Favorite", :action => "create", :controller => "favorite_gifs", params: { gif_id: gif.id }%>
+  <% end %>
