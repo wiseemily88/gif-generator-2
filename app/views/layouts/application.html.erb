@@ -16,9 +16,10 @@
         <li><%= link_to "All GIFS", user_gifs_path(current_user), class: 'btn btn-default navbar-btn' %></li>
         <li><%= link_to "FAVORITES", user_favorite_gifs_path(current_user), class: 'btn btn-default navbar-btn' %></li>
         <li><%= link_to "CATEGORIES", admin_categories_path, class: 'btn btn-default navbar-btn' %></li>
-        <li><%= link_to "LOGOUT", logout_path, class: 'btn btn-default navbar-btn' %></li>
+        <li><%= link_to "LOGOUT", logout_path, method: :delete, class: 'btn btn-default navbar-btn' %></li>
       <% else %>
         <li><%= link_to "LOG IN", login_path, class: 'btn btn-default navbar-btn' %></li>
+        <li><%= link_to "CREATE AN ACCOUNT", new_user_path, class: 'btn btn-default navbar-btn' %></li>
       <% end %>
       </ul>
     </div>
