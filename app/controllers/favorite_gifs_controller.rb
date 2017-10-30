@@ -15,12 +15,14 @@ class FavoriteGifsController < ApplicationController
   end
 
   def query
-      @gifs = []
-      favorite_gifs = current_user.favorite_gifs
-      favorite_gifs.each {|favorite|  @gifs << Gif.find(favorite.gif_id) }
-      #create a new an array with hash with category as the key
-      @gifs.order(:category)
-
+    @gifs = []
+    favorite_gifs = current_user.favorite_gifs
+    favorite_gifs.each {|favorite|  @gifs << Gif.find(favorite.gif_id) }
+    @sorted_hash = Hash.new
+    @gifs.each do |gif|
+      category = gif.category.name
+      @sorted_hash[category] = gif
+    end
   end
 
   def destroy
