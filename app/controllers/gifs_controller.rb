@@ -3,7 +3,7 @@ class GifsController < ApplicationController
     @gifs = Gif.all
   end
 
-  def query
+  def sort
     @gifs = Gif.all
     @sorted_hash = Hash.new
     @gifs.each do |gif|
