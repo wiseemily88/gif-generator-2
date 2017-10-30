@@ -14,7 +14,7 @@ describe "As a logged in User" do
 
   expect(page).to have_css("#image_#{user.gifs.first.id}")
 
-  click_button "Unfavorite"
+  click_link "Unfavorite"
   expect(current_path).to eq(user_favorite_gifs_path(user.id))
 
   end

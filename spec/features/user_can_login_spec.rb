@@ -6,7 +6,7 @@ describe "user can log in" do
   visit '/'
 
   click_on "Log In"
-  save_and_open_page
+
 
   expect(current_path).to eq(login_path)
   fill_in "session[username]", with: user.username
@@ -18,6 +18,6 @@ describe "user can log in" do
 
   expect(current_path).to eq(user_path(user))
   expect(page).to have_content ("Welcome #{user.username}")
-  save_and_open_page
+
   end
 end
