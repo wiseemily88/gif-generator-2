@@ -1,7 +1,14 @@
 <h1> Here are all the GIFS! </h1>
 <%= link_to "Sort by Category", :action => "query", :controller => "gifs" %>
+
+    <div class="row">
   <% @gifs.each do |gif| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
   <%= gif.category.name%>
   <%= image_tag(gif.image_path, size: "300x400", id: "image_#{gif.id}") %>
   <p class= "favorite_btn"><%= button_to "Favorite", :action => "create", :controller => "favorite_gifs", params: { gif_id: gif.id }%></p>
+  </div>
+  </div>
   <% end %>
+</div>

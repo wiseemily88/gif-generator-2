@@ -7,18 +7,24 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-  <nav>
-    <ul>
-    <% unless current_user.nil? %>
-      <li><%= link_to "All GIFS", user_gifs_path(current_user) %></li>
-      <li><%= link_to "Favorites", user_favorite_gifs_path(current_user) %></li>
-      <li><%= link_to "Logout", logout_path, method: "delete" %></li>
-      <li><%= link_to "Categories", admin_categories_path %></li>
-    <% else %>
-      <li><%= link_to "Log In", login_path, class: 'btn btn-default navbar-btn' %></li>
-    <% end %>
-  </ul>
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      <ul class="nav navbar-nav navbar-right">
+      <% unless current_user.nil? %>
+        <li><%= link_to "All GIFS", user_gifs_path(current_user), class: 'btn btn-default navbar-btn' %></li>
+        <li><%= link_to "FAVORITES", user_favorite_gifs_path(current_user), class: 'btn btn-default navbar-btn' %></li>
+        <li><%= link_to "CATEGORIES", admin_categories_path, class: 'btn btn-default navbar-btn' %></li>
+        <li><%= link_to "LOGOUT", logout_path, class: 'btn btn-default navbar-btn' %></li>
+      <% else %>
+        <li><%= link_to "LOG IN", login_path, class: 'btn btn-default navbar-btn' %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
 </nav>
+
 <% flash.each do |type, message| %>
   <%= content_tag :div, message, class: "alert alert-#{type}" %>
   <% end %>

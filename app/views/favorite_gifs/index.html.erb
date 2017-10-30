@@ -1,7 +1,13 @@
 <h1> Here are you favorite Gifs! </h1>
 <%= link_to "Sort by Category", :action => "query", :controller => "favorite_gifs" %>
+    <div class="row">
 <% @gifs.each do |gif| %>
+<div class="col-sm-6 col-md-3">
+  <div class="thumbnail">
 <%=gif.category.name %>
 <%=image_tag(gif.image_path, size: "300x400", id: "image_#{gif.id}") %>
 <%= link_to "Unfavorite", unfavorite_path(:gif_id => gif), :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+  </div>
 <% end %>
+</div>

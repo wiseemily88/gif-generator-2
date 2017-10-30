@@ -1,7 +1,13 @@
 <h1> Here are you favorite Gifs by Category! </h1>
-<% @sorted_hash.sort.map do |category, gif| %>
-<%=category %>
-<%=image_tag(gif.image_path, size: "300x400", id: "image_#{gif.id}") %>
-<%= link_to "Unfavorite", unfavorite_path, method: "delete" %>
 
+<div class="row">
+  <% @sorted_hash.sort.map do |category, gif| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+  <%=category %>
+  <%=image_tag(gif.image_path, size: "300x400", id: "image_#{gif.id}") %>
+  <%= link_to "Unfavorite", unfavorite_path, method: "delete" %>
+  </div>
+  </div>
 <% end %>
+</div>
