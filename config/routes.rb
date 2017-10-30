@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create', as: "login_path"
   delete '/logout', to: 'sessions#destroy'
   delete '/unfavorite', to: 'favorite_gifs#destroy'
-  get '/favoritegifsorted' => 'favorite_gifs#query', as: :query
+  get '/favoritegifsorted' => 'favorite_gifs#query', as: :query_favorite
+  get '/gifsorted' => 'gifs#query', as: :query
 
 
   namespace :admin do
