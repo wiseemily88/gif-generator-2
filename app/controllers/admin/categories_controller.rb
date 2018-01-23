@@ -1,3 +1,4 @@
+
 class Admin::CategoriesController < Admin::BaseController
 
   def new
